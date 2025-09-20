@@ -1,23 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-  <title>Bé hong chọn là tha lỗi cho anh đó</title>
+  <meta charset="UTF-8">
+  <title>Gửi Công Chúa của anh 💗</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
     body {
-      background-color: pink;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
+      font-family: 'Pacifico', cursive;
       text-align: center;
-      font-family: 'Comic Sans MS', cursive;
-      padding-top: 50px;
+      overflow: hidden;
     }
+
+    h1 {
+      font-size: 36px;
+      color: #d6336c;
+      margin-top: 40px;
+      animation: blink 1.5s infinite;
+    }
+
+    p {
+      font-size: 22px;
+      color: #333;
+      margin: 10px 20px;
+    }
+
     img {
-      width: 300px;
+      width: 280px;
       border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 20px;
+      border: none;
+      border-radius: 30px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* Heart animation */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Heart_corazón.svg/1024px-Heart_corazón.svg.png') no-repeat center;
+      background-size: contain;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Popup */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    #popup h2 {
+      font-size: 28px;
+      color: #d6336c;
+      margin-bottom: 10px;
+    }
+
+    #popup p {
+      font-size: 20px;
+      color: #555;
+    }
+
+    #closeBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <img src="https://media.giphy.com/media/SVkhYVCi8fKPKvypi6/giphy.gif" alt="Cute cat">
-  <h2>Bé iuu ơi choo anhh xinn lỗi nhóoo 😢</h2>
-  <p>Bé hong chọn hoặc thoát là tha lỗi cho anh đó</p>
+  <h1>Gửi Công Chúa của anh 💗</h1>
+  <img src="https://media.giphy.com/media/SVkhYVCi8fKPKvypi6/giphy.gif" alt="Cute gif">
+  <p>Cho anh xin lỗi vì đã làm Công Chúa buồn 😢</p>
+  <p>Không chọn hoặc thoát là tha lỗi cho anh đó nhaaa 😳</p>
+  <button onclick="showPopup()">Tha lỗi cho anh 💖</button>
+
+  <div id="popup">
+    <h2>Yêu Công Chúa nhất trên đời 😘</h2>
+    <p>Hứa sẽ không làm Công Chúa buồn nữa đâu 🥺</p>
+    <button id="closeBtn" onclick="hidePopup()">Đóng lại</button>
+  </div>
+
+  <!-- Heart rain -->
+  <script>
+    function showPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function hidePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    // Heart animation
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  </script>
 </body>
 </html>
